@@ -1,3 +1,5 @@
+import kotlin.math.pow
+
 fun main() {
 
 
@@ -64,4 +66,14 @@ fun main() {
     for (i in 5 downTo 1) println(i)
     //Incremental range
     for (i in 3..10 step 2) println(i)
+
+    val array = Array(7){
+        1000.0.pow(it)
+    }
+
+    val sizes = arrayOf("byte", "kilobyte", "megabyte", "gigabyte", "terabyte", "petabyte", "exabyte")
+
+    for ((i, value) in array.withIndex()){
+        println("1 ${sizes[i]} = ${value.toLong()} bytes")
+    }
 }
