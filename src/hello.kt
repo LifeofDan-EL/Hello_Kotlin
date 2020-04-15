@@ -17,9 +17,51 @@ fun main() {
     var rainbowColour = "red"
     rainbowColour = "blue"
 
+    println(rainbowColour)
+
     //Create a String blackColour whose value cannot be changed once assigned. Try changing it anyways
     val blackColour = "black"
 
-    print(rainbowColour)
+    //Making nullable
+    var greenColour = null
+    var blueColour : Int? = null
 
+   var fishname = "Herringjknionnonuvytf"
+
+    when (fishname.length){
+        0 -> println("error")
+        in 3..12 -> println("Good fish name")
+        else ->  println("OK fish name")
+    }
+
+    //Manipulating array
+    val myList = mutableListOf("tuna", "salmon", "shark")
+    myList.remove("shark")
+    myList.add(2, "geisha")
+    println(myList)
+
+    var fish = 12
+    var plants = 5
+    val swarm = listOf(fish, plants,7, 20, 39)
+
+    //Simple array
+    val bigSwarm = arrayOf(swarm, arrayOf("dolphin", "whale", "orka"))
+
+    println(swarm)
+    println(bigSwarm)
+
+    //accessing elements
+    for (element in swarm) println(element)
+
+    //getting element and the index
+    for ((index, element) in swarm.withIndex()){
+        println("Fish at $index is $element")
+    }
+        //Printing using ranges
+    for (i in 'b'..'d') println(i)
+    for (i in 1..5) println(i)
+    //range downwards
+    for (i in 5 downTo 1) println(i)
+    //Incremental range
+    for (i in 3..10 step 2) println(i)
 }
