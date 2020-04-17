@@ -1,12 +1,25 @@
 
 
-fun main (args: Array<String>){
-    var fortune: String
-    for (i in 1..10){
-        fortune = getFortune(getBirthday())
-        println("\nYour fortune is : $fortune")
-        if (fortune.contains("Take it easy"))break
-    }
+fun main (args: Array<String>) {
+//    var fortune: String
+//    for (i in 1..10){
+//        fortune = getFortune(getBirthday())
+//        println("\nYour fortune is : $fortune")
+//        if (fortune.contains("Take it easy"))break
+
+//      Using a repeat loop
+//    var fortune: String = ""
+//    repeat(10) {
+//        fortune = getFortune(getBirthday())
+//        println("\nYour fortune is : $fortune")
+//        if (fortune.contains("Take it easy")) ;
+//    }
+
+        var fortune: String = ""
+        while (!fortune.contains("Take it easy")){
+            fortune = getFortune(getBirthday())
+            println("\nYour fortune is : $fortune")}
+
 }
 
   //Gets birthday from the user

@@ -1,18 +1,31 @@
 import java.util.*
 
 fun main(args: Array<String>){
-    //usage of arguement
+    //usage of argument
     println("Hello, ${args[0]}")
-
     feedTheFish()
 }
 
+
+
+//A function with data types passed through it, it is a boolean function
 fun shouldChangeWater(
     day: String,
     temperature: Int = 22,
     dirty: Int = 20 ) : Boolean{
-    return true
+
+
+    //Here it returns the boolean logic after checking the conditions
+    return when{
+        isTooHot(temperature) -> true
+        isDirty(dirty) ->  true
+        isSunday(day) -> true
+        else -> false
+    }
 }
+fun isTooHot(temperature: Int) = temperature > 30
+fun isDirty(dirty: Int) = dirty > 30
+fun isSunday(day: String) = day == "Sunday"
 
 fun shouldChangeWater2(
     temperature: Int = 22,
@@ -35,17 +48,7 @@ fun feedTheFish (){
         println("Change the water today")
     }
 
-    swim()
-}
-
-fun swim(speed: String = "fast"){    val fortunes = listOf("You will have a great day!",
-        "Things will go well for you today.",
-        "Enjoy a wonderful day of success.",
-        "Be humble and all will turn out well",
-        "Today is a good day for exercising restraint",
-        "Take it easy and enjoy life",
-        "Treasure your friends because they are your greatest fortune")
-    println("swimming $speed")
+    dirtyProcessor()
 }
 
 fun randomDay() : String {
@@ -54,18 +57,39 @@ fun randomDay() : String {
 
     // it returns the array week, using the Random library and 7 as the boundary of randomization
     return week[Random().nextInt(7)]
+
 }
 
+  // We pass the argument of day to the fishfood
 fun fishFood(day : String) : String{
 
     return when (day) {
         "Monday" -> "flakes"
         "Tuesday" -> "pellets"
-        "Wednesday" ->  "redworms"
+        "Wednesday" -> "redworms"
         "Thursday" -> "granules"
         "Friday" -> "mosquitoes"
-        "Saturday" ->  "lettuce"
-        "Sunday" ->  "plankton"
+        "Saturday" -> "lettuce"
+        "Sunday" -> "plankton"
         else -> "fasting"
     }
+
+}
+
+var dirty = 20
+
+//This is any function that takes an Int and returns an Int
+
+val waterFilter: (Int) -> Int = {dirty -> dirty /2}
+fun feedFish(dirty: Int) = dirty + 10
+
+//It takes two parameters,an Int and a function of Int to Int
+fun updateDirty(dirty: Int, operation: (Int) -> Int) : Int{
+    return operation(dirty)
+}
+
+fun dirtyProcessor(){
+    dirty = updateDirty(dirty, waterFilter)
+    dirty = updateDirty(dirty, ::feedFish)
+
 }
