@@ -10,7 +10,7 @@ class Dog(val name: String,
         print("Dog $name has been created. ")
     }
 
-    // We add an array object activities which is part of the class
+    // We add an array property activities which is part of the class
     var activities = arrayOf("Walks")
 
     // We initialize the breed name and add the function to make the breed name to be capitalized
@@ -39,7 +39,7 @@ class Dog(val name: String,
 
 fun main(args: Array<String>) {
 
-    // We make a variable with parameters of the class
+    // We make a variable with property of the class
     val myDog = Dog("Fido", 70, "Mixed")
 
     // Accesses the bark function
