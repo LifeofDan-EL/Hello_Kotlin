@@ -73,7 +73,7 @@ class Vet {
 fun main () {
     // Goes through each class and runs their respective functions.
     val animals = arrayOf(Hippo(), Wolf())
-    for (item in animals){
+    for (item in animals) {
         item.roam()
         item.eat()
     }
